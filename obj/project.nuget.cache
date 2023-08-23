@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "ShSQc7XgpLg23L3nvI3PA+2uKLNh2qVYwlw+Saut6kRLllvBWHbKeEFA41JMlaBcLReUsP9ulq63aLrZ/EeEng==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\as1109061\\source\\repos\\FibonacciSequenceGenerator\\FibonacciSequenceGenerator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\as1109061\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.20\\microsoft.netcore.app.ref.6.0.20.nupkg.sha512",
+    "C:\\Users\\as1109061\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.20\\microsoft.windowsdesktop.app.ref.6.0.20.nupkg.sha512",
+    "C:\\Users\\as1109061\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.20\\microsoft.aspnetcore.app.ref.6.0.20.nupkg.sha512",
+    "C:\\Users\\as1109061\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.20\\microsoft.netcore.app.host.win-x64.6.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}
