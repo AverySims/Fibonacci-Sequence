@@ -13,9 +13,9 @@
             // saving generated values to array for later use
             fibonacciSequence = GenerateFibonacciSequence(sequenceLength);
 
-            foreach (int num in fibonacciSequence)
+            foreach (int n in fibonacciSequence)
             {
-                Console.Write(num + " ");
+                Console.WriteLine(n);
             }
         }
 
@@ -26,10 +26,18 @@
             Console.WriteLine("Select the length of the generated Fibonacci sequence:");
             while (loopEnable)
             {
+                // max is 47 steps, ulong begins to break after this
                 if (SimpleConsoleFunctions.ParseIntEC(out sequenceLength))
                 {
-                    if (sequenceLength < 1)
+                    // check if length is TOO high
+                    if (sequenceLength > 47)
                     {
+                        Console.WriteLine("Length too high, please enter a lower length (max 47)");
+                    }
+                    // check if length is TOO low
+                    else if (sequenceLength < 1)
+                    {
+                        // invalid number entered, return to start of loop for new number
                         Console.WriteLine("Please enter a value greater than 0");
                     }
                     else
@@ -40,6 +48,7 @@
                 }
                 else
                 {
+                    // TryParse function determined input as invalid (not an int)
                     Console.WriteLine("Please enter a valid number");
                 }
             }
@@ -61,7 +70,6 @@
                     sequence[i] = sequence[i - 1] + sequence[i - 2];
                 }
             }
-
             return sequence;
         }
 
