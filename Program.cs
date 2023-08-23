@@ -4,6 +4,7 @@
 	class Program
 	{
 		private static int sequenceLength;
+		// using "ulong" to hold larger values to persist the sequence further
 		private static ulong[] fibonacciSequence;
 		
 		static void Main(string[] args)
@@ -23,7 +24,6 @@
 				{
 					Console.WriteLine($"{i + 1}. {fibonacciSequence[i]}");
 				}
-
 				Console.WriteLine("Sequence end");
 				SimpleConsoleFunctions.PrintBlank();
 
@@ -51,7 +51,6 @@
 					{
 						Console.WriteLine("Please choose a valid sequence length (min: 1, max: 47)");
 					}
-                    
 				}
 				else
 				{
