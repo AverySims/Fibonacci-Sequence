@@ -60,7 +60,6 @@
 			}
 		}
 
-		// my function
 		private static ulong[] GenerateFibonacciSequence(int length)
 		{
 			ulong[] sequence = new ulong[length];
