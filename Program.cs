@@ -1,5 +1,6 @@
 ﻿namespace FibonacciSequenceGenerator
 {
+    // test comment
     class Program
     {
         private static int sequenceLength;
