@@ -4,6 +4,9 @@
 	class Program
 	{
 		private static int sequenceLength;
+		// ulong can only hold up to 94th digit of Fibonacci Sequence,
+		// it begins to display incorrect values after hitting this limit
+		private const int sequencelimit = 94;
 		// using "ulong" to hold larger values to persist the sequence further
 		private static ulong[] fibonacciSequence;
 		
@@ -42,14 +45,14 @@
 				if (SimpleConsoleFunctions.ParseIntEC(out sequenceLength))
 				{
 					// check if length is TOO low or TOO high
-					if (sequenceLength > 0 && sequenceLength < 48)
+					if (sequenceLength > 0 && sequenceLength < sequencelimit + 1)
 					{
 						// valid number entered, continue the program
 						loopEnable = false;
 					}
 					else
 					{
-						Console.WriteLine("Please choose a valid sequence length (min: 1, max: 47)");
+						Console.WriteLine($"Please choose a valid sequence length (min: 1, max: {sequencelimit})");
 					}
 				}
 				else
@@ -70,6 +73,8 @@
 			{
 				// explicitly defining second value if sequence length is 2 or more
 				sequence[1] = 1;
+				
+				// only generating via formula after 2 values have been defined
 				for (int i = 2; i < length; i++)
 				{
 					sequence[i] = sequence[i - 1] + sequence[i - 2];
