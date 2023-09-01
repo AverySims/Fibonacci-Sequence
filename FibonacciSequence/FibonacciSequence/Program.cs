@@ -6,11 +6,9 @@ namespace FibonacciSequence
 {
 	class Program
 	{
-		// user input
-		public static int StepCount;
-		
 		// I've tested this with a StepLimit of 100, 500, and 1000. All of them produce the correct result. (I think)
 		public static int StepLimit = 5000;
+		public static int StepCount;
 
 		static void Main(string[] args)
 		{
@@ -30,22 +28,20 @@ namespace FibonacciSequence
 
 		private static void SelectSequenceLength()
 		{
-			bool loopValid = false;
-
 			Console.Write("Enter your desired Fibonacci sequence length: ");
-			do
+			while (true)
 			{
 				StepCount = GenericReadLine.TryReadLine<int>();
 				if (StepCount >= 1 && StepCount <= StepLimit)
 				{
-					// valid number entered, continue the program
-					loopValid = true;
+					// valid number entered, break out of loop and continue
+					break;
 				}
 				else
 				{
 					Console.Write($"Please choose a valid length (min: 1, max: {StepLimit}): ");
 				}
-			} while (!loopValid);
+			}
 		}
 
 		private static void PrintFibonacci(int n)
