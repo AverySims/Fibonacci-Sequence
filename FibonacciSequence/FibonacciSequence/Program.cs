@@ -8,11 +8,9 @@ namespace FibonacciSequence
 	{
 		// user input
 		public static int StepCount;
-
-		// StepLimit is an arbitrary cap on how far we can generate before count the input as "out of range."
-		// it seems that it calculates correctly at any StepLimit. However, the console display can sometimes "break"
-		// and produce a *very* long line of text making it look line it's producing an incorrect result.
-		public static int StepLimit = 500;
+		
+		// I've tested this with a StepLimit of 100, 500, and 1000. All of them produce the correct result. (I think)
+		public static int StepLimit = 5000;
 
 		static void Main(string[] args)
 		{
@@ -22,18 +20,9 @@ namespace FibonacciSequence
 			{
 				// selecting how many numbers in the sequence to generate
 				SelectSequenceLength();
-
-				// saving generated values to array for later use
-				BigInteger[] fibonacci = GenerateFibonacciSequenceB(StepCount);
 				
 				ConsoleHelper.PrintBlank();
-				for (int i = 0; i < StepCount; i++)
-				{
-					// formatting the values to make them more readable
-					string readableInt = fibonacci[i].ToString("#,##0");
-					Console.WriteLine($"{i + 1}. {readableInt}");
-				}
-				ConsoleHelper.PrintBlank();
+				PrintFibonacci(StepCount);
 
 				ConsoleHelper.SelectEndingAction(out loopMain);
 			}
@@ -59,26 +48,33 @@ namespace FibonacciSequence
 			} while (!loopValid);
 		}
 
-		private static BigInteger[] GenerateFibonacciSequenceB(int length)
+		private static void PrintFibonacci(int n)
 		{
-			// defining the maximum size of the generated array
-			BigInteger[] sequence = new BigInteger[length];
-
-			// explicitly defining first value in sequence
-			sequence[0] = 0;
-
-			if (length > 1)
+			if (n >= 1)
 			{
-				// explicitly defining second value if sequence length is 2 or more
-				sequence[1] = 1;
-
-				// generating via formula after 2 values have been defined
-				for (int i = 2; i < length; i++)
-				{
-					sequence[i] = sequence[i - 1] + sequence[i - 2];
-				}
+				Console.WriteLine(FormatFibonacci(1, 0));
 			}
-			return sequence;
+			if (n >= 2)
+			{
+				Console.WriteLine(FormatFibonacci(2, 1));
+			}
+
+			BigInteger a = 0;
+			BigInteger b = 1;
+
+			for (int i = 2; i < n; i++)
+			{
+				BigInteger next = a + b;
+				Console.WriteLine(FormatFibonacci(i + 1, next));
+				ConsoleHelper.PrintBlank();
+				a = b;
+				b = next;
+			}
+		}
+		
+		static string FormatFibonacci(int index, BigInteger value)
+		{
+			return $"{index}. {value.ToString("N").Replace(".00", "")}";
 		}
 	}
 }
